@@ -18,12 +18,24 @@
     <ClCompile Include="WinForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UserForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistrationForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WinForm.h">
+    <ClInclude Include="LoginForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="User.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistrationForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

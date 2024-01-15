@@ -13,12 +13,12 @@ namespace WinFormLogin {
 	using namespace System::Data::SqlClient;
 
 	/// <summary>
-	/// Summary for WinForm
+	/// Summary for LoginForm
 	/// </summary>
-	public ref class WinForm : public System::Windows::Forms::Form
+	public ref class LoginForm : public System::Windows::Forms::Form
 	{
 	public:
-		WinForm(void)
+		LoginForm(void)
 		{
 			InitializeComponent();
 			//
@@ -30,7 +30,7 @@ namespace WinFormLogin {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~WinForm()
+		~LoginForm()
 		{
 			if (components)
 			{
@@ -100,7 +100,7 @@ namespace WinFormLogin {
 			this->button->TabIndex = 4;
 			this->button->Text = L"Submit";
 			this->button->UseVisualStyleBackColor = true;
-			this->button->Click += gcnew System::EventHandler(this, &WinForm::button_Click);
+			this->button->Click += gcnew System::EventHandler(this, &LoginForm::button_Click);
 			// 
 			// link
 			// 
@@ -111,6 +111,7 @@ namespace WinFormLogin {
 			this->link->TabIndex = 5;
 			this->link->TabStop = true;
 			this->link->Text = L"Register instead";
+			this->link->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &LoginForm::link_LinkClicked);
 			// 
 			// header
 			// 
@@ -162,7 +163,8 @@ namespace WinFormLogin {
 
 		}
 #pragma endregion
-	public: User^ user = nullptr;
+	public: User^ user = nullptr; 
+	public: bool switchToRegister = false;
 	private: System::Void button_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ email = this->emailBox->Text;
 		String^ password = this->passwordBox->Text;
@@ -202,5 +204,9 @@ namespace WinFormLogin {
 			MessageBox::Show("Failed to connect to database", "Database Connection Error", MessageBoxButtons::OK);
 		}
 	}
+private: System::Void link_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+	this->switchToRegister = true;
+	this->Close();
+}
 };
 }
